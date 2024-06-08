@@ -1,0 +1,262 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "krish",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5555/api",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "New Request",
+        "operationId": "NewRequest",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "login",
+        "operationId": "login",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/loginrequest"
+                  },
+                  {
+                    "example": {
+                      "email": "abc@gmail.com",
+                      "password": "aaaaa"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "abc@gmail.com",
+                "password": "aaaaa"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/signup": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "signup",
+        "operationId": "signup",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/signuprequest"
+                  },
+                  {
+                    "example": {
+                      "email": "abc@gmail.com",
+                      "password": "aaaaa",
+                      "confirmpassword": "aaaaa"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "abc@gmail.com",
+                "password": "aaaaa",
+                "confirmpassword": "aaaaa"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emailverify": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "emailverify",
+        "operationId": "emailverify",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/passwordupdate": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "passwordupdate",
+        "operationId": "passwordupdate",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/passwordupdaterequest"
+                  },
+                  {
+                    "example": {
+                      "email": "abc@gmail.com",
+                      "password": "bbbbb",
+                      "confirmpassword": "bbbbb"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "abc@gmail.com",
+                "password": "bbbbb",
+                "confirmpassword": "bbbbb"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "loginrequest": {
+        "title": "loginrequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "abc@gmail.com",
+          "password": "aaaaa"
+        }
+      },
+      "signuprequest": {
+        "title": "signuprequest",
+        "required": [
+          "email",
+          "password",
+          "confirmpassword"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "confirmpassword": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "abc@gmail.com",
+          "password": "aaaaa",
+          "confirmpassword": "aaaaa"
+        }
+      },
+      "passwordupdaterequest": {
+        "title": "passwordupdaterequest",
+        "required": [
+          "email",
+          "password",
+          "confirmpassword"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "confirmpassword": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "abc@gmail.com",
+          "password": "bbbbb",
+          "confirmpassword": "bbbbb"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "product"
+    },
+    {
+      "name": "auth"
+    }
+  ]
+}
